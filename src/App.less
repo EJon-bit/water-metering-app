@@ -9,6 +9,20 @@
  
 }
 
+.ant-modal-mask {  
+  background-color: rgba(0, 0, 0, 0.315);
+  backdrop-filter: blur(0.5rem);
+}
+
+.ant-ribbon{
+  box-shadow: -2px 1px 2px rgba(31, 31, 35, 0.589);
+  width: 100px;
+
+  #ribbonText{
+    font-weight: 500;
+  }
+}
+
 #loginBackground{
   height: 100vh;
   width: 100vw;
@@ -32,8 +46,6 @@
   }
 
 }
-
-
 
 #appContainer{
   height: 100vh;
@@ -83,6 +95,7 @@
     box-shadow: 0px -2px 5px rgba(13, 13, 14, 0.377);
     backdrop-filter: blur(0.5rem);
     border:transparent;
+
     #waterMeterSvg{
       font-size: 40px;
       color:rgb(0, 60, 255);
@@ -95,36 +108,61 @@
     }
 
     #waterReading{
-        background: linear-gradient(to right top, #568af8ee, #0011fff3);
+        background: linear-gradient(to right top, #006efdee, #006efdee, #0011fff3);
 				background-clip: text;
 				-webkit-text-fill-color: transparent;
     }
     .ant-alert{
-      height:90px;
+     // height:90px;
       padding-right: 15px;
       padding-left: 15px;
       margin-top:20px;
+      border-radius: 8px;
+
+      h3.ant-typography,
+      .ant-typography h3 {
+        margin-bottom: 0px;
+      }
+
+      .ant-col-offset-7 {
+        margin-left: 27.16666667%;
+      }
+      
+      #meterId{
+        font-size: 12px;
+        font-weight: 600;
+      }
 
       #waterDropIcon{
         font-size: 40px;
       }
 
       #statusBadge{
-        padding-top: 10px;
+        padding-top: 20px;
         font-weight:600;
         color:rgb(0, 68, 255);      
        
+      }
+
+      #billSvg, #locationSvg{
+        font-size: 25px;
+        //font-weight:600;
       }
       
       .ant-badge-dot {
         z-index: 2px;        
         box-shadow: 2px 2px 2px 2px rgba(15, 15, 15, 0.568);
       }
+
+      .ant-tag{
+        background: linear-gradient(to right top, rgba(0, 0, 255, 0.37), rgba(0, 255, 255, 0.527));
+        backdrop-filter: blur(0.5rem);
+        border: 1px solid #0026fd;
+        font-weight:500;
+      }
     }
-    
-    
   
-    #syncIcon, #historyIcon, #propsIcon{
+    #syncIcon, #historyIcon, #propsIcon, #plusIcon{
       font-size: 20px;
       font-weight: bold;
       color:rgb(0, 89, 255);
