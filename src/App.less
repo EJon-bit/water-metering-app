@@ -1,0 +1,134 @@
+@import '~antd/dist/antd.less';
+
+.App {
+  text-align: center;
+}
+
+.ant-card-head {  
+  border-bottom: transparent;
+ 
+}
+
+#loginBackground{
+  height: 100vh;
+  width: 100vw;
+  background-image: url('./Backgrounds/WaterBackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .ant-card-head {     
+    border-bottom: transparent;
+  }
+
+  #loginCard{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(192, 223, 252, 0.705);
+    backdrop-filter: blur(1rem);
+    border-radius: 0px;
+    box-shadow:  0px 0px 5px rgba(13, 13, 14, 0.11);
+  }
+
+}
+
+
+
+#appContainer{
+  height: 100vh;
+  width: 100vw;
+  background-image: url('./Backgrounds/HomeBackground.jpg');  
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ant-modal-content {
+  
+  border-radius: 8px;
+  
+}
+
+.ant-modal-footer { 
+  border-radius: 0 0 8px 8px;
+}
+.ant-modal-header {
+  
+  border-radius: 8px 8px 0 0;
+}
+
+#componentContainer{
+  padding-top: 50px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  .ant-card-head {     
+    margin-bottom: 30px;
+  }
+  
+  .ant-card-actions {    
+    background:transparent;
+    border: transparent;
+    border-radius: 1px 1px 8px 8px ;
+    box-shadow: 0px 2px 5px rgba(13, 13, 14, 0.377);
+  }
+  .ant-card-actions > li > span a:not(.ant-btn):hover,
+  .ant-card-actions > li > span > .anticon:hover {
+    color: #142433;
+    font-size: 22px;
+  }
+
+  #waterRateCard{
+    width: inherit;
+    box-shadow: 0px -2px 5px rgba(13, 13, 14, 0.377);
+    backdrop-filter: blur(0.5rem);
+    border:transparent;
+    #waterMeterSvg{
+      font-size: 40px;
+      color:rgb(0, 60, 255);
+    }
+    #meterCardHeader{
+      font-weight: 450;
+      background: linear-gradient(to right top, #0004fcee, #3700fff3);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #waterReading{
+        background: linear-gradient(to right top, #568af8ee, #0011fff3);
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+    }
+    .ant-alert{
+      height:90px;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-top:20px;
+
+      #waterDropIcon{
+        font-size: 40px;
+      }
+
+      #statusBadge{
+        padding-top: 10px;
+        font-weight:600;
+        color:rgb(0, 68, 255);      
+       
+      }
+      
+      .ant-badge-dot {
+        z-index: 2px;        
+        box-shadow: 2px 2px 2px 2px rgba(15, 15, 15, 0.568);
+      }
+    }
+    
+    
+  
+    #syncIcon, #historyIcon, #propsIcon{
+      font-size: 20px;
+      font-weight: bold;
+      color:rgb(0, 89, 255);
+    }
+  }
+
+}
