@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 
 
 import { Alert, Avatar, Card, Col, Icon, Input, Row, Switch, Badge, Typography, Tooltip, Button, Tag } from 'antd';
@@ -6,14 +6,19 @@ import { EllipsisOutlined, SyncOutlined, HistoryOutlined, CheckOutlined, CloseOu
 import Modal from 'antd/lib/modal/Modal';
 import Form from 'antd/lib/form/Form';
 
-import SvgAsset from '../components/Asset'
-import SvgWaterDroplet from '../components/WaterDroplet';
-import SvgWaterMeter from '../components/WaterMeter';
-import SvgGenerateBill from '../components/GenerateBill';
-import SvgLocation from '../components/Location';
+import SvgAsset from '../components/svgComponents/Asset'
+import SvgWaterDroplet from '../components/svgComponents/WaterDroplet';
+import SvgWaterMeter from '../components/svgComponents/WaterMeter';
+import SvgGenerateBill from '../components/svgComponents/GenerateBill';
+import SvgLocation from '../components/svgComponents/Location';
+import AdditionalProps from '../components/modalComponents/AdditionalProps';
+import MeterSync from '../components/modalComponents/MeterSyncForm';
+
+import useWindowDimensions from '../customHooks/useWindowHook';
+import useRefDimensions from '../customHooks/useRefDimensions';
 
 
-
+ 
 const { Meta } = Card;
 const { Title } = Typography;
 
@@ -25,6 +30,7 @@ const Home=()=>{
     const [modalVisible, setModalVisible]= useState(false);
     const [footerContent, setFooterContent]= useState(null);
     const [modalTitle, setModalTitle]= useState(null);
+      
 
     const alertDescription=()=>{
         return( 
@@ -71,25 +77,9 @@ const Home=()=>{
             const titleModal= <Row justify="center">Additional Properties</Row>
             setModalTitle(titleModal);
             setFooterContent(<Button onClick={()=>setModalVisible(false)}>Close</Button>);  
-                    
-            content=
-            <div>
-                <Row justify="center" gutter={[30, 50]}>
-                    <Col span={10}>
-                        <Title level={5}>Actual Reading</Title><Tag color="blue">5456 GPM</Tag>
-                    </Col>
-                    <Col span={10}>                        
-                        <Title level={5}>
-                            Delta
-                        </Title>
-                        <Tag color="blue">8</Tag>
-                    </Col>
-                    <Col span={10}>
-                        <Title level={5}>
-                            Last Sync</Title> <Tag color="blue">dd/mm/yyyy</Tag>
-                    </Col>
-                </Row>
-            </div>
+            content= <AdditionalProps/>    
+            
+            setModalContent(content);
         }
         else if(type==="sync"){
             const titleModal= <Row justify="center">Manual Sync</Row>
@@ -104,12 +94,8 @@ const Home=()=>{
                     </Col>
                 </Row>
             );
-            content= 
-            <Form  name="Meter Synchronization" layout="vertical">
-                <Form.Item label={<Row justify="center"><Title level={5}>Enter Meter Value</Title></Row>} name="meterVal">
-                    <Input placeholder="e.g. 1456" />
-                </Form.Item>
-            </Form>
+            content= <MeterSync/>
+           
         }
         else if(type==="addMeter"){
             const titleModal= <Row justify="center">Add A Meter</Row>
@@ -181,25 +167,31 @@ const Home=()=>{
             )
         }
         return(
-            <Row justify="center">
-                <Col lg={18} xs={22}>
-                    <Badge.Ribbon text={<Row  id="ribbonText" justify="center">Status</Row>} color="cyan">
-                        <Alert id="meterDisplay" message={showRate()}  description={alertDescription()} type="info"/>
-                    </Badge.Ribbon>
-                </Col>
-            </Row>            
-            
+            <div id="alertCard">
+                <Row justify="center">               
+                    <Col lg={18} xs={22}>
+                        <Badge.Ribbon text={<Row  id="ribbonText" justify="center">Status</Row>} color="cyan">
+                            <Alert id="meterDisplay" message={showRate()}  description={alertDescription()} type="info"/>
+                        </Badge.Ribbon>
+                    </Col>    
+                                
+                </Row>       
+               
+            </div>
+                
         )
     }
 
+   
+
     return(
-        <div id="homePage">
-            <Row justify="center">
-                <Col lg={20} md={24}>   
-                        <Modal title={modalTitle} visible={modalVisible} footer={footerContent}>
-                            {modalContent}
-                        </Modal>            
-                        <Card id="waterRateCard"                      
+        <div id="homePage"> 
+            <Modal title={modalTitle} visible={modalVisible} footer={footerContent}>
+                {modalContent}
+            </Modal>            
+            <Row justify="center" gutter={[0, 40]}>
+                <Col lg={20} md={24}>                                    
+                        <Card id="waterRateCard"                                               
                             actions={[
                                 <Tooltip color="blue" title="Additional Properties" placement="bottom">
                                     <EllipsisOutlined id="propsIcon" key="setting" onClick={()=>openModal("props")}/>
@@ -213,14 +205,21 @@ const Home=()=>{
                                 <Tooltip color="blue" title="Add a Meter" placement="bottom" onClick={()=>openModal("addMeter")}>
                                     <PlusOutlined id="plusIcon"></PlusOutlined>
                                 </Tooltip>                                
-                            ]}>
+                            ]}
+                            >
                                 <Meta
                                     title={renderCardTitle()}
                                     description={waterRateRender()}
                                 />
                         </Card>                        
+                </Col>   
+                <Col lg={20} md={24}>                                    
+                        <Card id="waterRateCard"  >                                             
+                           
+                        </Card>                        
                 </Col>     
-            </Row>             
+            </Row> 
+                        
         </div>
     )
    

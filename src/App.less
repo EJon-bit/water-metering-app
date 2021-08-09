@@ -14,6 +14,10 @@
   backdrop-filter: blur(0.5rem);
 }
 
+// .ant-tooltip{
+//   box-shadow: 0px 2px 2px rgba(16, 16, 17, 0.712);
+// }
+
 .ant-ribbon{
   box-shadow: -2px 1px 2px rgba(31, 31, 35, 0.589);
   width: 100px;
@@ -53,6 +57,7 @@
   background-image: url('./Backgrounds/HomeBackground.jpg');  
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: auto;
 }
 
 .ant-modal-content {
@@ -74,8 +79,19 @@
   padding-left: 5px;
   padding-right: 5px;
 
+
+  // .ant-card-meta-description {
+  //   overflow: auto;
+  // }
+
   .ant-card-head {     
     margin-bottom: 30px;
+   
+  }
+
+  #alertCard{
+    height: 200px;
+    overflow: auto;
   }
   
   .ant-card-actions {    
@@ -83,7 +99,12 @@
     border: transparent;
     border-radius: 1px 1px 8px 8px ;
     box-shadow: 0px 2px 5px rgba(13, 13, 14, 0.377);
+    z-index: 3;
   }
+  // .ant-card-actions > li > span {
+  //   position: fixed;
+    
+  // }
   .ant-card-actions > li > span a:not(.ant-btn):hover,
   .ant-card-actions > li > span > .anticon:hover {
     color: #142433;
@@ -96,6 +117,7 @@
     backdrop-filter: blur(0.5rem);
     border:transparent;
 
+    
     #waterMeterSvg{
       font-size: 40px;
       color:rgb(0, 60, 255);
