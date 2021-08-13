@@ -1,9 +1,17 @@
 import React, {useContext} from 'react';
 import { Route, Redirect, Link, useLocation, useHistory } from 'react-router-dom';
 
-import { Layout, Menu } from 'antd';
+import { Card, Col, Layout, Menu, Row, Badge, Tooltip } from 'antd';
 import { AuthContext } from '../contexts/AuthContext';
+
+import SvgNotificationBell from '../components/svgComponents/NotificationBell';
+import SvgAccMgmt from '../components/svgComponents/AccMgmt';
+import SvgSettings from '../components/svgComponents/Settings';
+import CustomScrollbars from '../components/CustomScrollbars';
+
 const {Content}= Layout;
+
+
 
 const ProtectedRoute=({ component: Component, ...routeProps})=>{
 
@@ -15,11 +23,30 @@ const ProtectedRoute=({ component: Component, ...routeProps})=>{
 
                 return(
                     <Layout id='appContainer'>                  
-              
-                        <Content id='componentContainer'>                                                              
-                            <Component {...routeProps}/> 
-                        </Content> 
-                      
+                        <CustomScrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
+                            <Content id='componentContainer'>                             
+                                <Component {...routeProps}/>                                                      
+                            </Content> 
+                        </CustomScrollbars> 
+                        <Row justify="center">
+                            <Card  id="menuCard">                                 
+                                    <Card.Grid hoverable={true}>
+                                        <Tooltip color="blue" title="Notifications" placement="top">
+                                            <SvgNotificationBell id="menuIcon"/>
+                                        </Tooltip>
+                                    </Card.Grid>   
+                                    <Card.Grid hoverable={true}>
+                                        <Tooltip color="blue" title="Account Management" placement="top">
+                                            <SvgAccMgmt id="menuIcon"/> 
+                                        </Tooltip> 
+                                    </Card.Grid>                                 
+                                    <Card.Grid hoverable={true}>
+                                        <Tooltip color="blue" title="App Configurations" placement="top">
+                                            <SvgSettings id="menuIcon"/>
+                                        </Tooltip>
+                                    </Card.Grid>                                                                                                      
+                            </Card>
+                        </Row>                      
                     </Layout> 
                 )
             }

@@ -54,10 +54,48 @@
 #appContainer{
   height: 100vh;
   width: 100vw;
-  background-image: url('./Backgrounds/HomeBackground.jpg');  
+  background-image: url('./Backgrounds/HomeBkg.png');  
   background-size: cover;
   background-repeat: no-repeat;
   overflow: auto;
+
+  #menuCard{
+    background: rgba(255, 255, 255, 0.747);
+    backdrop-filter: blur(1rem);
+    box-shadow: 0px 0px 5px 2px rgba(24, 24, 27, 0.438);
+    position: fixed;
+    bottom: 20px;
+    border-radius: 14px;
+    height: 75px;    
+    padding: 5px;
+
+    .ant-card-grid {
+      height:inherit;
+      float: inline-start;
+      width: 31.4%;
+      padding: 12px;
+      border: transparent;
+      box-shadow: none;
+      border-radius: 14px;    
+    }
+
+    .ant-card-grid:not(:first-child):not(:last-child) {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+   
+    .ant-card-grid-hoverable:hover {
+      position: relative;
+      z-index: 1;
+      background:rgba(255, 255, 255, 0.445);
+      box-shadow: 0 1px 2px -2px rgba(7, 14, 47, 0.16), 0 3px 6px 0 rgba(5, 4, 66, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+    }
+   
+
+    #menuIcon{
+      font-size:35px;
+    }
+  }
 }
 
 .ant-modal-content {
@@ -91,7 +129,8 @@
 
   #alertCard{
     height: 200px;
-    overflow: auto;
+    overflow-y: auto;
+    padding-bottom: 5px;
   }
   
   .ant-card-actions {    
@@ -111,12 +150,26 @@
     font-size: 22px;
   }
 
+  #otherCard{
+    width: inherit;
+    box-shadow: 0px -2px 5px rgba(13, 13, 14, 0.658);
+    backdrop-filter: blur(0.5rem);
+    border:transparent;
+    background: linear-gradient(to right top, rgba(0, 0, 255, 0.829), rgba(0, 204, 255, 0.774));
+    border-radius: 12px;
+  }
+
   #waterRateCard{
     width: inherit;
     box-shadow: 0px -2px 5px rgba(13, 13, 14, 0.377);
     backdrop-filter: blur(0.5rem);
     border:transparent;
+    background: rgba(255, 255, 255, 0.76);
 
+    
+    #checkBox{
+      top: 50%;
+    }
     
     #waterMeterSvg{
       font-size: 40px;
@@ -146,8 +199,8 @@
         margin-bottom: 0px;
       }
 
-      .ant-col-offset-7 {
-        margin-left: 27.16666667%;
+      .ant-col-offset-5 {
+        margin-left: 23.16666667%;
       }
       
       #meterId{

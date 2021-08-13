@@ -1,7 +1,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 
 
-import { Alert, Avatar, Card, Col, Icon, Input, Row, Switch, Badge, Typography, Tooltip, Button, Tag } from 'antd';
+import { Alert, Avatar, Card, Col, Icon, Input, Row, Switch, Badge, Typography, Tooltip, Button, Tag, Checkbox, Select } from 'antd';
 import { EllipsisOutlined, SyncOutlined, HistoryOutlined, CheckOutlined, CloseOutlined, PlusOutlined} from '@ant-design/icons';
 import Modal from 'antd/lib/modal/Modal';
 import Form from 'antd/lib/form/Form';
@@ -17,6 +17,8 @@ import MeterSync from '../components/modalComponents/MeterSyncForm';
 import useWindowDimensions from '../customHooks/useWindowHook';
 import useRefDimensions from '../customHooks/useRefDimensions';
 
+import CustomScrollbars from '../components/CustomScrollbars';
+
 
  
 const { Meta } = Card;
@@ -30,11 +32,27 @@ const Home=()=>{
     const [modalVisible, setModalVisible]= useState(false);
     const [footerContent, setFooterContent]= useState(null);
     const [modalTitle, setModalTitle]= useState(null);
+
+    const [form] = Form.useForm();
       
+    const options = [
+        { label: 'Attachments', value: 'gold' }, 
+        { label: 'Other Unique Properties', value: 'lime' }, 
+        { label: 'File Transfers (SFTP)', value: 'green' }, 
+        { label: 'Script Execution (SSH)', value: 'cyan' }
+    ];
+
+    const formProps= 
+    {
+        name:"meterForm",
+        form: form,       
+        layout:"vertical",
+        requiredMark:false
+    }
 
     const alertDescription=()=>{
         return( 
-            <Col span={12} offset={7}>
+            <Col span={12} offset={3}>
                 <Row>
                     <p id="meterId">Pipe Number - 4</p>
                 </Row>
@@ -69,55 +87,68 @@ const Home=()=>{
         setModalVisible(false)
     }
 
-
     const openModal=(type)=>{        
-        var content = null; 
+        var content =  
+        <Form {...formProps}>
+            <Form.Item 
+            name='meterId' 
+            label={<Row justify="center"><Title level={5}> Meter Selection</Title></Row>}>
+                <Select
+                    mode="multiple"
+                    showArrow                                                  
+                    style={{ width: '100%' }}
+                    placeholder='Select a Meter from Dropdown'
+                    options={options}
+                    onChange={"nothing"}
+                />
+            </Form.Item>
+        </Form> ; 
        
-        if(type==="props"){ 
-            const titleModal= <Row justify="center">Additional Properties</Row>
-            setModalTitle(titleModal);
-            setFooterContent(<Button onClick={()=>setModalVisible(false)}>Close</Button>);  
-            content= <AdditionalProps/>    
+        // if(type==="props"){ 
+        //     const titleModal= <Row justify="center"> <Title level={4}>Additional Properties</Title></Row>
+        //     setModalTitle(titleModal);
+        //     setFooterContent(<Button onClick={()=>setModalVisible(false)}>Close</Button>);  
+        //     content += <AdditionalProps/>    
             
-            setModalContent(content);
-        }
-        else if(type==="sync"){
-            const titleModal= <Row justify="center">Manual Sync</Row>
-            setModalTitle(titleModal);
-            setFooterContent(
-                <Row gutter={20} justify="center">
-                    <Col>
-                        <Button onClick={()=>setModalVisible(false)}>Cancel</Button>
-                    </Col>
-                    <Col>
-                        <Button onClick={"Syncing"}>Sync</Button>
-                    </Col>
-                </Row>
-            );
-            content= <MeterSync/>
+        //     setModalContent(content);
+        // }
+        // else if(type==="sync"){
+        //     const titleModal= <Row justify="center">Manual Sync</Row>
+        //     setModalTitle(titleModal);
+        //     setFooterContent(
+        //         <Row gutter={20} justify="center">
+        //             <Col>
+        //                 <Button onClick={()=>setModalVisible(false)}>Cancel</Button>
+        //             </Col>
+        //             <Col>
+        //                 <Button onClick={"Syncing"}>Sync</Button>
+        //             </Col>
+        //         </Row>
+        //     );
+        //     content= <MeterSync/>
            
-        }
-        else if(type==="addMeter"){
-            const titleModal= <Row justify="center">Add A Meter</Row>
-            setModalTitle(titleModal);
-            setFooterContent(
-                <Row gutter={20} justify="center">
-                    <Col>
-                        <Button onClick={()=>setModalVisible(false)}>Cancel</Button>
-                    </Col>
-                    <Col>
-                        <Button onClick={"Syncing"}>Add</Button>
-                    </Col>
-                </Row>
-            );
-            content=<></>
-        }
-        else{
-            const titleModal= <Row justify="center">Meter History</Row>
-            setModalTitle(titleModal);
-            setFooterContent(<Button onClick={()=>setModalVisible(false)}>Close</Button>);  
-            content=<></>
-        }
+        // }
+        // else if(type==="addMeter"){
+        //     const titleModal= <Row justify="center">Add A Meter</Row>
+        //     setModalTitle(titleModal);
+        //     setFooterContent(
+        //         <Row gutter={20} justify="center">
+        //             <Col>
+        //                 <Button onClick={()=>setModalVisible(false)}>Cancel</Button>
+        //             </Col>
+        //             <Col>
+        //                 <Button onClick={"Syncing"}>Add</Button>
+        //             </Col>
+        //         </Row>
+        //     );
+        //     content=<></>
+        // }
+        // else{
+        //     const titleModal= <Row justify="center">Meter History</Row>
+        //     setModalTitle(titleModal);
+        //     setFooterContent(<Button onClick={()=>setModalVisible(false)}>Close</Button>);  
+        //     content=<></>
+        // }
         setModalContent(content);
         setModalVisible(true);
     }
@@ -139,12 +170,13 @@ const Home=()=>{
         const showRate=()=>{
             return(
                 <Row>
+                                      
                     <Col lg={20}>
                         <Row align="middle" gutter={40}>
-                            <Col span={2} offset={5}>
+                            <Col span={2} offset={1}>
                                 <SvgWaterDroplet id="waterDropIcon"/>
                             </Col>
-                            <Col span={12}>
+                            <Col span={16}>
                                 <Row>
                                     <Title id="waterReading" level={3}>{waterRate}</Title>
                                 </Row>                               
@@ -168,17 +200,17 @@ const Home=()=>{
         }
         return(
             <div id="alertCard">
-                <Row justify="center">               
-                    <Col lg={18} xs={22}>
-                        <Badge.Ribbon text={<Row  id="ribbonText" justify="center">Status</Row>} color="cyan">
-                            <Alert id="meterDisplay" message={showRate()}  description={alertDescription()} type="info"/>
-                        </Badge.Ribbon>
-                    </Col>    
-                                
-                </Row>       
-               
-            </div>
-                
+                <CustomScrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
+                    <Row justify="center">               
+                        <Col lg={18} xs={22}>
+                            <Badge.Ribbon text={<Row  id="ribbonText" justify="center">Status</Row>} color="cyan">
+                                <Alert id="meterDisplay" message={showRate()}  description={alertDescription()} type="info"/>
+                            </Badge.Ribbon>
+                        </Col>                          
+                    </Row> 
+                   
+                </CustomScrollbars>
+            </div>                
         )
     }
 
@@ -214,11 +246,11 @@ const Home=()=>{
                         </Card>                        
                 </Col>   
                 <Col lg={20} md={24}>                                    
-                        <Card id="waterRateCard"  >                                             
-                           
+                        <Card id="otherCard"  style={{height:'550px'}} >                                             
+                           fhj
                         </Card>                        
                 </Col>     
-            </Row> 
+            </Row>             
                         
         </div>
     )
