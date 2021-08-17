@@ -41,7 +41,7 @@ const Login=(props)=>{
                             <Form.Item>
                                 <Row justify="center">
                                     <Button id="loginButton" type="primary" htmlType="submit" className="login-form-button">
-                                        Login
+                                        <a id="buttonAttribute">Login</a>
                                     </Button>
                                 </Row>                        
                             </Form.Item>

@@ -32,15 +32,23 @@ const Home=()=>{
     const [modalVisible, setModalVisible]= useState(false);
     const [footerContent, setFooterContent]= useState(null);
     const [modalTitle, setModalTitle]= useState(null);
+    const [renderModalContent, setRenderContent]= useState(false);
 
     const [form] = Form.useForm();
       
     const options = [
-        { label: 'Attachments', value: 'gold' }, 
+        { label: 'Attachments'}, 
         { label: 'Other Unique Properties', value: 'lime' }, 
         { label: 'File Transfers (SFTP)', value: 'green' }, 
         { label: 'Script Execution (SSH)', value: 'cyan' }
     ];
+
+    const accSeletionProcess=(values, options)=>{      
+        options.forEach(option=>{if(values.includes(option.value)){
+            console.log(option.value)        
+            setRenderContent(true);
+        }})
+    }
 
     const formProps= 
     {
@@ -98,57 +106,62 @@ const Home=()=>{
                     showArrow                                                  
                     style={{ width: '100%' }}
                     placeholder='Select a Meter from Dropdown'
+                    optionFilterProp="label"
                     options={options}
-                    onChange={"nothing"}
+                    onChange={(values, options)=>{ accSeletionProcess(values, options)}}
                 />
             </Form.Item>
         </Form> ; 
        
-        // if(type==="props"){ 
-        //     const titleModal= <Row justify="center"> <Title level={4}>Additional Properties</Title></Row>
-        //     setModalTitle(titleModal);
-        //     setFooterContent(<Button onClick={()=>setModalVisible(false)}>Close</Button>);  
-        //     content += <AdditionalProps/>    
-            
-        //     setModalContent(content);
-        // }
-        // else if(type==="sync"){
-        //     const titleModal= <Row justify="center">Manual Sync</Row>
-        //     setModalTitle(titleModal);
-        //     setFooterContent(
-        //         <Row gutter={20} justify="center">
-        //             <Col>
-        //                 <Button onClick={()=>setModalVisible(false)}>Cancel</Button>
-        //             </Col>
-        //             <Col>
-        //                 <Button onClick={"Syncing"}>Sync</Button>
-        //             </Col>
-        //         </Row>
-        //     );
-        //     content= <MeterSync/>
-           
-        // }
-        // else if(type==="addMeter"){
-        //     const titleModal= <Row justify="center">Add A Meter</Row>
-        //     setModalTitle(titleModal);
-        //     setFooterContent(
-        //         <Row gutter={20} justify="center">
-        //             <Col>
-        //                 <Button onClick={()=>setModalVisible(false)}>Cancel</Button>
-        //             </Col>
-        //             <Col>
-        //                 <Button onClick={"Syncing"}>Add</Button>
-        //             </Col>
-        //         </Row>
-        //     );
-        //     content=<></>
-        // }
-        // else{
-        //     const titleModal= <Row justify="center">Meter History</Row>
-        //     setModalTitle(titleModal);
-        //     setFooterContent(<Button onClick={()=>setModalVisible(false)}>Close</Button>);  
-        //     content=<></>
-        // }
+        if(renderModalContent){
+            if(type==="props"){ 
+                const titleModal= <Row justify="center"> <Title level={4}>Additional Properties</Title></Row>
+                setModalTitle(titleModal);
+                setFooterContent(<Button onClick={()=>setModalVisible(false)}>Close</Button>);  
+                content = <AdditionalProps/>    
+                
+                setModalContent(content);
+            }
+            else if(type==="sync"){
+                const titleModal= <Row justify="center">Manual Sync</Row>
+                setModalTitle(titleModal);
+                setFooterContent(
+                    <Row gutter={20} justify="center">
+                        <Col>
+                            <Button onClick={()=>setModalVisible(false)}>Cancel</Button>
+                        </Col>
+                        <Col>
+                            <Button onClick={"Syncing"}>Sync</Button>
+                        </Col>
+                    </Row>
+                );
+                content= <MeterSync/>
+               
+            }
+            else if(type==="addMeter"){
+                const titleModal= <Row justify="center">Add A Meter</Row>
+                setModalTitle(titleModal);
+                setFooterContent(
+                    <Row gutter={20} justify="center">
+                        <Col>
+                            <Button onClick={()=>setModalVisible(false)}>Cancel</Button>
+                        </Col>
+                        <Col>
+                            <Button onClick={"Syncing"}>Add</Button>
+                        </Col>
+                    </Row>
+                );
+                content=<></>
+            }
+            else{
+                const titleModal= <Row justify="center">Meter History</Row>
+                setModalTitle(titleModal);
+                setFooterContent(<Button onClick={()=>setModalVisible(false)}>Close</Button>);  
+                content=<></>
+            }
+        }
+       
+       
         setModalContent(content);
         setModalVisible(true);
     }
@@ -169,28 +182,27 @@ const Home=()=>{
     const waterRateRender=()=>{
         const showRate=()=>{
             return(
-                <Row>
-                                      
-                    <Col lg={20}>
+                <Row>                                      
+                    <Col lg={18}>
                         <Row align="middle" gutter={40}>
                             <Col span={2} offset={1}>
                                 <SvgWaterDroplet id="waterDropIcon"/>
                             </Col>
                             <Col span={16}>
                                 <Row>
-                                    <Title id="waterReading" level={3}>{waterRate}</Title>
+                                    <Title id="waterReading" level={2}>{waterRate}</Title>
                                 </Row>                               
                             </Col>
                             <Col lg={4}>
                                 <Tooltip color="blue" title="Turn Pipe On/Off" placement="bottom">
-                                    <Switch loading={switchLoading} checkedChildren={<CheckOutlined/>} unCheckedChildren={<CloseOutlined/>}/>
+                                    <Switch loading={switchLoading} checkedChildren={<CheckOutlined id="switchCheckIcon"/>} unCheckedChildren={<CloseOutlined id="switchCloseIcon"/>}/>
                                 </Tooltip>
                             </Col>
                         </Row>
                     </Col>                                 
-                    <Col lg={4}>
+                    <Col lg={6}>
                         <Row justify="end">  
-                            <Badge id="statusBadge" status="success"  text="Running"/>                              
+                            <Badge id="statusBadge" status="success"  text={<a id="statusText">Running</a>}/>                              
                         </Row>
                     </Col>
                 </Row>

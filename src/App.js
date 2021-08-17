@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 //css imports
 //import 'antd/dist/antd.css';
-import './App.less';
+import './App.dark.less';
 
 
 //custom component imports
@@ -14,7 +14,7 @@ import AuthContextProvider from './contexts/AuthContext';
 
 const App=()=>{
   return (
-    <Router>
+    <Router className="dark">
         <AuthContextProvider>       
           <Routes/>  
         </AuthContextProvider>  
