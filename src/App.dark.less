@@ -4,6 +4,11 @@
   text-align: center;
   color: white;
 }
+.ant-form-item {
+  .ant-input{
+    background-color:rgba(255, 255, 255, 0.171);
+  }       
+}
 
 .ant-card-head {  
   border-bottom: transparent;
@@ -11,13 +16,14 @@
 }
 
 .ant-modal-mask {  
-  background-color: rgba(0, 0, 0, 0.315);
-  backdrop-filter: blur(0.5rem);
+  background-color: rgba(204, 220, 252, 0.247);
+  backdrop-filter: blur(0.3rem);
 }
 
-// .ant-tooltip{
-//   box-shadow: 0px 2px 2px rgba(16, 16, 17, 0.712);
-// }
+#waterPropsCard{
+  background-color:#eff0f318;
+  border: none;
+}
 
 .ant-ribbon{
   box-shadow: -3px 1px 5px 2px rgba(2, 2, 255, 0.589);
@@ -25,7 +31,7 @@
 
   #ribbonText{
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.637);
+    color: rgba(26, 29, 59, 0.938);
   }
 }
 
@@ -50,6 +56,13 @@
     border-radius: 0px;
     box-shadow:  0px 0px 8px 5px rgba(14, 84, 130, 0.336);
 
+    .ant-form-item {
+      .ant-input{
+        background-color:rgba(255, 255, 255, 0.171);
+      }       
+    }
+   
+
     #loginButton{
       background: linear-gradient(to right top, #0076fcee, #00c3fff3);
       box-shadow:  0px 0px 4px 1px rgba(18, 18, 19, 0.37);
@@ -65,7 +78,7 @@
 #appContainer{
   height: 100vh;
   width: 100vw;
-  background-image: url('./Backgrounds/HomeBkgDark.png');  
+  background-image: url('./Backgrounds/HomeBkgAsset 5.png');  
   background-size: cover;
   background-repeat: no-repeat;
   overflow: auto;
@@ -73,7 +86,7 @@
   #menuCard{
     background: rgba(15, 15, 15, 0.747);
     backdrop-filter: blur(1rem);
-    box-shadow: 0px 0px 5px 2px rgba(5, 92, 255, 0.438);
+    box-shadow: 0px 0px 8px 1px rgba(5, 93, 255, 0.164);
     position: fixed;
     bottom: 20px;
     border-radius: 14px;
@@ -99,9 +112,9 @@
     .ant-card-grid-hoverable:hover {
       position: relative;
       z-index: 1;
-      background:rgba(255, 255, 255, 0.192);
+      background:rgba(255, 255, 255, 0.068);
      // backdrop-filter: blur(0.5rem);
-      box-shadow: 0 1px 2px -2px rgba(12, 94, 218, 0.16), 0 3px 6px 0 rgba(10, 68, 193, 0.12), 0 5px 12px 4px rgba(12, 91, 208, 0.09);
+      box-shadow: 0 0px 2px -2px rgba(12, 94, 218, 0.16), 0 3px 6px 0 rgba(10, 68, 193, 0.12), 0 5px 12px 4px rgba(12, 91, 208, 0.09);
     }
    
 
@@ -110,19 +123,52 @@
     }
   }
 }
-
-.ant-modal-content {
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+ 
+  background-color: rgba(255, 255, 255, 0.123);
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
   
+}
+
+.ant-select-dropdown{
+  background-color: rgba(50, 66, 79, 0.87);
+}
+
+.ant-modal{
+  color:white;
+}
+.ant-modal-content {
+  background:rgb(14, 32, 52);
   border-radius: 8px;
   
 }
 
+.ant-form-item .ant-form-item-label { 
+  text-align:center;
+  color:white;
+}
+
 .ant-modal-footer { 
   border-radius: 0 0 8px 8px;
+  #modalCloseButton, #modalSyncButton{
+    background: linear-gradient(to right top, #0076fcee, #00c3fff3);
+    box-shadow:  0px 0px 4px 1px rgba(18, 18, 19, 0.37);    
+    font-weight:600;  
+    border-color: #0026fd;
+    color: white;
+  }
+  #modalCloseButton:hover, #modalSyncButton:hover{
+    background: linear-gradient(to right top, #0076fc83, #00c3ff57);
+  }
+  
 }
 .ant-modal-header {
-  
+  background:rgb(14, 32, 52);
   border-radius: 8px 8px 0 0;
+  #modalTitle{
+    color: #0077ff;
+  } 
 }
 
 #componentContainer{
@@ -147,10 +193,10 @@
   }
   
   .ant-card-actions {    
-    background:transparent;
+    background: rgba(56, 59, 86, 0.205);
     border: transparent;
     border-radius: 1px 1px 8px 8px ;
-    box-shadow: 0px 2px 5px rgba(13, 13, 14, 0.377);
+    box-shadow: 0px 2px 5px rgba(13, 13, 14, 0.281);
     z-index: 3;
   }
 
@@ -173,7 +219,7 @@
     box-shadow: 0px -2px 5px rgba(11, 11, 17, 0.658);
     backdrop-filter: blur(0.5rem);
     border:transparent;
-    background: linear-gradient(to right top, rgba(0, 0, 255, 0.829), rgba(0, 204, 255, 0.774));
+    background: linear-gradient(to right top, rgba(214, 214, 247, 0.075), rgba(0, 204, 255, 0.089));
     border-radius: 12px;
   }
 
@@ -228,7 +274,7 @@
       }
 
       #statusText{
-        color:rgb(160, 248, 248);
+        color:rgb(209, 220, 253);
       }
 
 

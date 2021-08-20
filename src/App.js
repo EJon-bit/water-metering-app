@@ -11,12 +11,15 @@ import './App.dark.less';
 import Routes from './router/Routes';
 
 import AuthContextProvider from './contexts/AuthContext';
+import ModalContextProvider from './contexts/ModalContext';
 
 const App=()=>{
   return (
     <Router className="dark">
-        <AuthContextProvider>       
-          <Routes/>  
+        <AuthContextProvider> 
+          <ModalContextProvider>
+            <Routes/> 
+          </ModalContextProvider>       
         </AuthContextProvider>  
     </Router>
   );
