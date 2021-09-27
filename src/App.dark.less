@@ -4,10 +4,19 @@
   text-align: center;
   color: white;
 }
+
 .ant-form-item {
   .ant-input{
-    background-color:rgba(255, 255, 255, 0.171);
-  }       
+    background-color:transparent;
+  }   
+  .ant-input:placeholder-shown{
+    color:#142433c0
+  }
+  .ant-input-affix-wrapper{
+    background-color:rgba(255, 255, 255, 0.445);
+  } 
+ 
+        
 }
 
 .ant-card-head {  
@@ -20,10 +29,12 @@
   backdrop-filter: blur(0.3rem);
 }
 
-#waterPropsCard{
-  background-color:#eff0f318;
-  border: none;
-}
+// #waterPropsCard{
+//   background-color:#eff0f318;
+//   border: none;
+//   //padding:2px;
+// }
+
 
 .ant-ribbon{
   box-shadow: -3px 1px 5px 2px rgba(2, 2, 255, 0.589);
@@ -56,13 +67,7 @@
     border-radius: 0px;
     box-shadow:  0px 0px 8px 5px rgba(14, 84, 130, 0.336);
 
-    .ant-form-item {
-      .ant-input{
-        background-color:rgba(255, 255, 255, 0.171);
-      }       
-    }
    
-
     #loginButton{
       background: linear-gradient(to right top, #0076fcee, #00c3fff3);
       box-shadow:  0px 0px 4px 1px rgba(18, 18, 19, 0.37);
@@ -123,17 +128,22 @@
     }
   }
 }
-.ant-select:not(.ant-select-customize-input) .ant-select-selector {
- 
-  background-color: rgba(255, 255, 255, 0.123);
-  border: 1px solid #d9d9d9;
-  border-radius: 2px;
-  
-}
 
-.ant-select-dropdown{
-  background-color: rgba(50, 66, 79, 0.87);
-}
+// #appModal{
+//   .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+ 
+//     background-color: rgba(255, 255, 255, 0.123);
+//     border: 1px solid #d9d9d9;
+//     border-radius: 2px;
+    
+//   }
+//   .ant-select-dropdown{
+//     background-color: rgba(50, 66, 79, 0.87);
+//   }
+// }
+
+
+
 
 .ant-modal{
   color:white;
@@ -141,6 +151,61 @@
 .ant-modal-content {
   background:rgb(14, 32, 52);
   border-radius: 8px;
+  
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+ 
+    background-color: rgba(255, 255, 255, 0.123);
+    border: 1px solid #d9d9d9;
+    color:white;
+    border-radius: 2px;
+    
+  }
+  .ant-select-dropdown{
+    background-color: rgba(50, 66, 79, 0.87);
+  }
+  
+    .ant-alert{
+      background-color:#eff0f318;
+      border: none;
+      .ant-typography{
+        color: rgb(252, 251, 241);
+      }
+      #accountDetail{
+        color: white;
+        font-weight:500;
+      }
+    }
+  
+    .ant-table {
+     
+      margin-left: -5%;
+      margin-right: -5%;
+      //padding: 0;
+      color: rgba(253, 250, 231, 0.959);
+      font-size: 18px;
+      font-weight:500;
+     
+      position: relative;
+      font-size: 14px;
+      background: none;
+      
+    }
+
+    .ant-table-thead > tr > th {
+      position: relative;
+      background:none;
+      border-bottom: 1px solid #5347ff;
+      // transition: background 0.3s ease;
+    }
+    .ant-table-tbody > tr > td {
+      border-bottom: 1px solid #3a37fa38;
+      background-color: #1b1f5494;
+      padding-left: 30px;
+    }
+
+    .ant-table-tbody > tr.ant-table-row:hover > td {
+      background: #8990f52f;
+    }
   
 }
 

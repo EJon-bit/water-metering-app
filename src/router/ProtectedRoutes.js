@@ -34,17 +34,17 @@ const ProtectedRoute=({ component: Component, ...routeProps})=>{
                             <Card  id="menuCard">                                 
                                     <Card.Grid hoverable={true}>
                                         <Tooltip color="blue" title="Notifications" placement="top">
-                                            <SvgNotificationBell id="menuIcon" onClick={()=>openModal(null)}/>
+                                            <SvgNotificationBell id="menuIcon" onClick={()=>openModal({"menu":"Notif"})}/>
                                         </Tooltip>
                                     </Card.Grid>   
                                     <Card.Grid hoverable={true}>
                                         <Tooltip color="blue" title="Account Management" placement="top">
-                                            <SvgAccMgmt id="menuIcon"/> 
+                                            <SvgAccMgmt id="menuIcon" onClick={()=>openModal({"menu":"Account"})}/> 
                                         </Tooltip> 
                                     </Card.Grid>                                 
                                     <Card.Grid hoverable={true}>
                                         <Tooltip color="blue" title="App Configurations" placement="top">
-                                            <SvgSettings id="menuIcon"/>
+                                            <SvgSettings id="menuIcon" onClick={()=>openModal({"menu":"Settings"})}/>
                                         </Tooltip>
                                     </Card.Grid>                                                                                                      
                             </Card>
