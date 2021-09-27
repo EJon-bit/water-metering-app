@@ -4,244 +4,352 @@
   text-align: center;
 }
 
-.ant-card-head {  
-  border-bottom: transparent;
- 
-}
-
-.ant-modal-mask {  
-  background-color: rgba(0, 0, 0, 0.315);
-  backdrop-filter: blur(0.5rem);
-}
-
-// .ant-tooltip{
-//   box-shadow: 0px 2px 2px rgba(16, 16, 17, 0.712);
-// }
-
-.ant-ribbon{
-  box-shadow: -2px 1px 2px rgba(31, 31, 35, 0.589);
-  width: 100px;
-
-  #ribbonText{
-    font-weight: 500;
-  }
-}
-
-#loginBackground{
-  height: 100vh;
-  width: 100vw;
-  background-image: url('./Backgrounds/WaterBackground.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  .ant-card-head {     
-    border-bottom: transparent;
-  }
-
-  #loginCard{
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(192, 223, 252, 0.705);
-    backdrop-filter: blur(1rem);
-    border-radius: 0px;
-    box-shadow:  0px 0px 5px rgba(13, 13, 14, 0.11);
-  }
-
-}
-
-#appContainer{
-  height: 100vh;
-  width: 100vw;
-  background-image: url('./Backgrounds/HomeBkg.png');  
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: auto;
-
-  #menuCard{
-    background: rgba(255, 255, 255, 0.747);
-    backdrop-filter: blur(1rem);
-    box-shadow: 0px 0px 5px 2px rgba(24, 24, 27, 0.438);
-    position: fixed;
-    bottom: 20px;
-    border-radius: 14px;
-    height: 75px;    
-    padding: 5px;
-
-    .ant-card-grid {
-      height:inherit;
-      float: inline-start;
-      width: 31.4%;
-      padding: 12px;
-      border: transparent;
-      box-shadow: none;
-      border-radius: 14px;    
-    }
-
-    .ant-card-grid:not(:first-child):not(:last-child) {
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-   
-    .ant-card-grid-hoverable:hover {
-      position: relative;
-      z-index: 1;
-      background:rgba(255, 255, 255, 0.445);
-      box-shadow: 0 1px 2px -2px rgba(7, 14, 47, 0.16), 0 3px 6px 0 rgba(5, 4, 66, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
-    }
-   
-
-    #menuIcon{
-      font-size:35px;
-    }
-  }
-}
-
-.ant-modal-content {
-  
+.ant-modal-content{
+  //background:rgb(14, 32, 52);
   border-radius: 8px;
+  
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+ 
+    background-color: rgba(179, 189, 245, 0.123);
+    border: 1px solid #0c68f1;
+    color:rgb(11, 7, 49);
+    //border-radius: 2px;
+    
+  }
+  .ant-select-dropdown{
+    background-color: rgba(50, 66, 79, 0.87);
+  }
+  
+    .ant-alert{
+      //background-color:#eff0f318;
+      border: none;
+      // .ant-typography{
+      //   //color: rgb(252, 251, 241);
+      // }
+      #accountDetail{
+        //color: white;
+        font-weight:500;
+      }
+    }
+  
+    .ant-table {
+     
+      margin-left: -5%;
+      margin-right: -5%;
+      //padding: 0;
+      //color: rgba(253, 250, 231, 0.959);
+      font-size: 18px;
+      font-weight:500;
+     
+      position: relative;
+      font-size: 14px;
+      background: none;
+      
+    }
+
+    .ant-table-thead > tr > th {
+      position: relative;
+      background:none;
+      border-bottom: 1px solid #1100fa85;
+      // transition: background 0.3s ease;
+    }
+    .ant-table-tbody > tr > td {
+      border-bottom: 1px solid #3a37fa38;
+      background-color: #023dff10;
+      padding-left: 30px;
+    }
+
+    .ant-table-tbody > tr.ant-table-row:hover > td {
+      background: #8990f51a;
+    }
+
+    // .ant-typography{
+    //   //color:white;
+    // }
   
 }
 
 .ant-modal-footer { 
   border-radius: 0 0 8px 8px;
-}
-.ant-modal-header {
+  #modalCloseButton, #modalSyncButton{
+    background: linear-gradient(to right top, #0076fcee, #00c3fff3);
+    box-shadow:  0px 0px 4px 1px rgba(18, 18, 19, 0.37);    
+    font-weight:600;  
+    border-color: #0026fd;
+    color: white;
+  }
+  #modalCloseButton:hover, #modalSyncButton:hover{
+    background: linear-gradient(to right top, #0076fc83, #00c3ff57);
+  }
   
-  border-radius: 8px 8px 0 0;
 }
 
-#componentContainer{
-  padding-top: 50px;
-  padding-left: 5px;
-  padding-right: 5px;
+.ant-modal-header {
+  background:rgb(255, 255, 255);
+  border-radius: 8px 8px 0 0;
+  #modalTitle{
+    color: #0077ff;
+  } 
+}
+.ant-modal-mask {  
+  background-color: rgba(35, 38, 44, 0.658);
+  backdrop-filter: blur(0.3rem);
+}
 
 
-  // .ant-card-meta-description {
-  //   overflow: auto;
-  // }
 
-  .ant-card-head {     
-    margin-bottom: 30px;
+
+  .ant-form-item {
+    .ant-input{
+      background-color:transparent;      
+    }   
+    .ant-input:placeholder-shown{
+      color:#142433c0
+    }
+    .ant-input-affix-wrapper{
+      background-color:rgba(255, 255, 255, 0.445);   
+      border: 1px solid rgba(0, 0, 255, 0.274); 
+    } 
+   
+          
+  }
+
+  .ant-card-head {  
+    border-bottom: transparent;
    
   }
-
-  #alertCard{
-    height: 200px;
-    overflow-y: auto;
-    padding-bottom: 5px;
+  
+ 
+  // .ant-tooltip{
+  //   box-shadow: 0px 2px 2px rgba(16, 16, 17, 0.712);
+  // }
+  
+  .ant-ribbon{
+    box-shadow: -2px 1px 2px rgba(31, 31, 35, 0.589);
+    width: 100px;
+  
+    #ribbonText{
+      font-weight: 500;
+    }
   }
   
-  .ant-card-actions {    
-    background:transparent;
-    border: transparent;
-    border-radius: 1px 1px 8px 8px ;
-    box-shadow: 0px 2px 5px rgba(13, 13, 14, 0.377);
-    z-index: 3;
-  }
-  // .ant-card-actions > li > span {
-  //   position: fixed;
-    
-  // }
-  .ant-card-actions > li > span a:not(.ant-btn):hover,
-  .ant-card-actions > li > span > .anticon:hover {
-    color: #142433;
-    font-size: 22px;
-  }
-
-  #otherCard{
-    width: inherit;
-    box-shadow: 0px -2px 5px rgba(13, 13, 14, 0.658);
-    backdrop-filter: blur(0.5rem);
-    border:transparent;
-    background: linear-gradient(to right top, rgba(0, 0, 255, 0.829), rgba(0, 204, 255, 0.774));
-    border-radius: 12px;
-  }
-
-  #waterRateCard{
-    width: inherit;
-    box-shadow: 0px -2px 5px rgba(13, 13, 14, 0.377);
-    backdrop-filter: blur(0.5rem);
-    border:transparent;
-    background: rgba(255, 255, 255, 0.76);
-
-    
-    #checkBox{
+  #loginBackground{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./Backgrounds/LoginBkg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+    .ant-card-head {     
+      border-bottom: transparent;
+    }
+  
+    #loginCard{
+      width: 100%;
+      position: absolute;
       top: 50%;
-    }
-    
-    #waterMeterSvg{
-      font-size: 40px;
-      color:rgb(0, 60, 255);
-    }
-    #meterCardHeader{
-      font-weight: 450;
-      background: linear-gradient(to right top, #0004fcee, #3700fff3);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+      transform: translateY(-50%);
+      background: rgba(192, 223, 252, 0.705);
+      backdrop-filter: blur(1rem);
+      border-radius: 0px;
+      box-shadow:  0px 0px 5px rgba(13, 13, 14, 0.11);
 
-    #waterReading{
-        background: linear-gradient(to right top, #006efdee, #006efdee, #0011fff3);
-				background-clip: text;
-				-webkit-text-fill-color: transparent;
-    }
-    .ant-alert{
-     // height:90px;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-top:20px;
-      border-radius: 8px;
-
-      h3.ant-typography,
-      .ant-typography h3 {
-        margin-bottom: 0px;
-      }
-
-      .ant-col-offset-5 {
-        margin-left: 23.16666667%;
-      }
-      
-      #meterId{
-        font-size: 12px;
-        font-weight: 600;
-      }
-
-      #waterDropIcon{
-        font-size: 40px;
-      }
-
-      #statusBadge{
-        padding-top: 20px;
-        font-weight:600;
-        color:rgb(0, 68, 255);      
+      #loginButton{
+        background: linear-gradient(to right top, #0076fcee, #00c3fff3);
+        box-shadow:  0px 0px 4px 1px rgba(18, 18, 19, 0.37);
+        #buttonAttribute{
+          font-weight:600;       
+        }
        
       }
-
-      #billSvg, #locationSvg{
-        font-size: 25px;
-        //font-weight:600;
+    }
+  
+  }
+  
+  #appContainer{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./Backgrounds/HomeBkg.png');  
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: auto;
+  
+    #menuCard{
+      background: rgba(255, 255, 255, 0.747);
+      backdrop-filter: blur(1rem);
+      box-shadow: 0px 0px 5px 2px rgba(24, 24, 27, 0.438);
+      position: fixed;
+      bottom: 20px;
+      border-radius: 14px;
+      height: 75px;    
+      padding: 5px;
+  
+      .ant-card-grid {
+        height:inherit;
+        float: inline-start;
+        width: 31.4%;
+        padding: 12px;
+        border: transparent;
+        box-shadow: none;
+        border-radius: 14px;    
+      }
+  
+      .ant-card-grid:not(:first-child):not(:last-child) {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+     
+      .ant-card-grid-hoverable:hover {
+        position: relative;
+        z-index: 1;
+        background:rgba(255, 255, 255, 0.445);
+        box-shadow: 0 1px 2px -2px rgba(7, 14, 47, 0.16), 0 3px 6px 0 rgba(5, 4, 66, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+      }
+     
+  
+      #menuIcon{
+        font-size:35px;
+      }
+    }
+  }
+  
+ 
+  #componentContainer{
+    padding-top: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+  
+  
+    // .ant-card-meta-description {
+    //   overflow: auto;
+    // }
+  
+    .ant-card-head {     
+      margin-bottom: 30px;
+     
+    }
+  
+    #alertCard{
+      height: 200px;
+      overflow-y: auto;
+      padding-bottom: 5px;
+    }
+    
+    .ant-card-actions {    
+      background:transparent;
+      border: transparent;
+      border-radius: 1px 1px 8px 8px ;
+      box-shadow: 0px 2px 5px rgba(13, 13, 14, 0.377);
+      z-index: 3;
+    }
+    // .ant-card-actions > li > span {
+    //   position: fixed;
+      
+    // }
+    .ant-card-actions > li > span a:not(.ant-btn):hover,
+    .ant-card-actions > li > span > .anticon:hover {
+      color: #142433;
+      font-size: 22px;
+    }
+  
+    #otherCard{
+      width: inherit;
+      box-shadow: 0px -2px 5px rgba(13, 13, 14, 0.658);
+      backdrop-filter: blur(0.5rem);
+      border:transparent;
+      background: linear-gradient(to right top, rgba(0, 0, 255, 0.829), rgba(0, 204, 255, 0.774));
+      border-radius: 12px;
+    }
+  
+    #waterRateCard{
+      width: inherit;
+      box-shadow: 0px -2px 5px rgba(13, 13, 14, 0.377);
+      backdrop-filter: blur(0.5rem);
+      border:transparent;
+      background: rgba(255, 255, 255, 0.76);
+  
+      
+      #checkBox{
+        top: 50%;
       }
       
-      .ant-badge-dot {
-        z-index: 2px;        
-        box-shadow: 2px 2px 2px 2px rgba(15, 15, 15, 0.568);
+      #waterMeterSvg{
+        font-size: 40px;
+        color:rgb(0, 60, 255);
       }
+      #meterCardHeader{
+        font-weight: 450;
+        background: linear-gradient(to right top, #0004fcee, #3700fff3);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+  
+      #waterReading{
+          background: linear-gradient(to right top, #006efdee, #006efdee, #0011fff3);
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+      }
+      .ant-alert{
+       // height:90px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-top:20px;
+        border-radius: 8px;
+  
+        h3.ant-typography,
+        .ant-typography h3 {
+          margin-bottom: 0px;
+        }
+  
+        .ant-col-offset-5 {
+          margin-left: 23.16666667%;
+        }
+        
+        #meterId{
+          font-size: 12px;
+          font-weight: 600;
+        }
+  
+        #waterDropIcon{
+          font-size: 40px;
+        }
 
-      .ant-tag{
-        background: linear-gradient(to right top, rgba(0, 0, 255, 0.37), rgba(0, 255, 255, 0.527));
-        backdrop-filter: blur(0.5rem);
-        border: 1px solid #0026fd;
-        font-weight:500;
+        .ant-switch{
+          background-color: rgba(16, 136, 152, 0.884);
+          color:white;
+        }
+  
+        #statusBadge{
+          padding-top: 20px;
+          font-weight:600;
+          color:rgb(0, 68, 255);      
+         
+        }
+  
+        #billSvg, #locationSvg{
+          font-size: 25px;
+          //font-weight:600;
+        }
+        
+        .ant-badge-dot {
+          z-index: 2px;        
+          box-shadow: 2px 2px 2px 2px rgba(15, 15, 15, 0.568);
+        }
+  
+        .ant-tag{
+          background: linear-gradient(to right top, rgba(0, 0, 255, 0.37), rgba(0, 255, 255, 0.527));
+          backdrop-filter: blur(0.5rem);
+          border: 1px solid #0026fd;
+          font-weight:500;
+        }
+      }
+    
+      #syncIcon, #historyIcon, #propsIcon, #plusIcon{
+        font-size: 20px;
+        font-weight: bold;
+        color:rgb(0, 89, 255);
       }
     }
   
-    #syncIcon, #historyIcon, #propsIcon, #plusIcon{
-      font-size: 20px;
-      font-weight: bold;
-      color:rgb(0, 89, 255);
-    }
   }
 
-}

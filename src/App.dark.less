@@ -1,409 +1,402 @@
 @import '~antd/dist/antd.less';
 
+
 .App {
   text-align: center;
   color: white;
 }
 
-.ant-form-item {
-  .ant-input{
-    background-color:transparent;
-  }   
-  .ant-input:placeholder-shown{
-    color:#142433c0
+  .ant-form-item {
+    .ant-input{
+      background-color:transparent;
+    }   
+    .ant-input:placeholder-shown{
+      color:#142433c0
+    }
+    .ant-input-affix-wrapper{
+      background-color:rgba(255, 255, 255, 0.445);    
+    } 
+   
+          
   }
-  .ant-input-affix-wrapper{
-    background-color:rgba(255, 255, 255, 0.445);
-  } 
- 
-        
-}
-
-.ant-card-head {  
-  border-bottom: transparent;
- 
-}
-
-.ant-modal-mask {  
-  background-color: rgba(204, 220, 252, 0.247);
-  backdrop-filter: blur(0.3rem);
-}
-
-// #waterPropsCard{
-//   background-color:#eff0f318;
-//   border: none;
-//   //padding:2px;
-// }
-
-
-.ant-ribbon{
-  box-shadow: -3px 1px 5px 2px rgba(2, 2, 255, 0.589);
-  width: 100px;
-
-  #ribbonText{
-    font-weight: 500;
-    color: rgba(26, 29, 59, 0.938);
-  }
-}
-
-#loginBackground{
-  height: 100vh;
-  width: 100vw;
-  background-image: url('./Backgrounds/LoginBkg.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  .ant-card-head {     
+  
+  .ant-card-head {  
     border-bottom: transparent;
-  }
-
-  #loginCard{
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(192, 223, 252, 0.308);
-    backdrop-filter: blur(1rem);
-    border-radius: 0px;
-    box-shadow:  0px 0px 8px 5px rgba(14, 84, 130, 0.336);
-
    
-    #loginButton{
-      background: linear-gradient(to right top, #0076fcee, #00c3fff3);
-      box-shadow:  0px 0px 4px 1px rgba(18, 18, 19, 0.37);
-      #buttonAttribute{
-        font-weight:600;       
-      }
-     
+  }
+  
+  .ant-modal-mask {  
+    background-color: rgba(204, 220, 252, 0.247);
+    backdrop-filter: blur(0.3rem);
+  }
+  
+  // #waterPropsCard{
+  //   background-color:#eff0f318;
+  //   border: none;
+  //   //padding:2px;
+  // }
+  
+  
+  .ant-ribbon{
+    box-shadow: -3px 1px 5px 2px rgba(2, 2, 255, 0.589);
+    width: 100px;
+  
+    #ribbonText{
+      font-weight: 500;
+      color: rgba(26, 29, 59, 0.938);
     }
   }
-
-}
-
-#appContainer{
-  height: 100vh;
-  width: 100vw;
-  background-image: url('./Backgrounds/HomeBkgAsset 5.png');  
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: auto;
-
-  #menuCard{
-    background: rgba(15, 15, 15, 0.747);
-    backdrop-filter: blur(1rem);
-    box-shadow: 0px 0px 8px 1px rgba(5, 93, 255, 0.164);
-    position: fixed;
-    bottom: 20px;
-    border-radius: 14px;
-    height: 75px;    
-    padding: 5px;
-    border: transparent;
-
-    .ant-card-grid {
-      height:inherit;
-      float: inline-start;
-      width: 31.4%;
-      padding: 12px;
+  
+  #loginBackground{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./Backgrounds/LoginBkg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+    .ant-card-head {     
+      border-bottom: transparent;
+    }
+  
+    #loginCard{
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(192, 223, 252, 0.308);
+      backdrop-filter: blur(1rem);
+      border-radius: 0px;
+      box-shadow:  0px 0px 8px 5px rgba(14, 84, 130, 0.336);
+  
+     
+      #loginButton{
+        background: linear-gradient(to right top, #0076fcee, #00c3fff3);
+        box-shadow:  0px 0px 4px 1px rgba(18, 18, 19, 0.37);
+        #buttonAttribute{
+          font-weight:600;       
+        }
+       
+      }
+    }
+  
+  }
+  
+  #appContainer{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./Backgrounds/HomeBkgAsset 5.png');  
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: auto;
+  
+    #menuCard{
+      background: rgba(15, 15, 15, 0.747);
+      backdrop-filter: blur(1rem);
+      box-shadow: 0px 0px 8px 1px rgba(5, 93, 255, 0.164);
+      position: fixed;
+      bottom: 20px;
+      border-radius: 14px;
+      height: 75px;    
+      padding: 5px;
       border: transparent;
-      box-shadow: none;
-      border-radius: 14px;    
-    }
-
-    .ant-card-grid:not(:first-child):not(:last-child) {
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-   
-    .ant-card-grid-hoverable:hover {
-      position: relative;
-      z-index: 1;
-      background:rgba(255, 255, 255, 0.068);
-     // backdrop-filter: blur(0.5rem);
-      box-shadow: 0 0px 2px -2px rgba(12, 94, 218, 0.16), 0 3px 6px 0 rgba(10, 68, 193, 0.12), 0 5px 12px 4px rgba(12, 91, 208, 0.09);
-    }
-   
-
-    #menuIcon{
-      font-size:35px;
+  
+      .ant-card-grid {
+        height:inherit;
+        float: inline-start;
+        width: 31.4%;
+        padding: 12px;
+        border: transparent;
+        box-shadow: none;
+        border-radius: 14px;    
+      }
+  
+      .ant-card-grid:not(:first-child):not(:last-child) {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+     
+      .ant-card-grid-hoverable:hover {
+        position: relative;
+        z-index: 1;
+        background:rgba(255, 255, 255, 0.068);
+       // backdrop-filter: blur(0.5rem);
+        box-shadow: 0 0px 2px -2px rgba(12, 94, 218, 0.16), 0 3px 6px 0 rgba(10, 68, 193, 0.12), 0 5px 12px 4px rgba(12, 91, 208, 0.09);
+      }
+     
+  
+      #menuIcon{
+        font-size:35px;
+      }
     }
   }
-}
-
-// #appModal{
-//   .ant-select:not(.ant-select-customize-input) .ant-select-selector {
- 
-//     background-color: rgba(255, 255, 255, 0.123);
-//     border: 1px solid #d9d9d9;
-//     border-radius: 2px;
-    
-//   }
-//   .ant-select-dropdown{
-//     background-color: rgba(50, 66, 79, 0.87);
-//   }
-// }
-
-
-
-
-.ant-modal{
-  color:white;
-}
-.ant-modal-content {
-  background:rgb(14, 32, 52);
-  border-radius: 8px;
   
-  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
- 
-    background-color: rgba(255, 255, 255, 0.123);
-    border: 1px solid #d9d9d9;
+    
+  
+  .ant-modal{
     color:white;
-    border-radius: 2px;
+  }
+  .ant-modal-content {
+    background:rgb(14, 32, 52);
+    border-radius: 8px;
     
-  }
-  .ant-select-dropdown{
-    background-color: rgba(50, 66, 79, 0.87);
-  }
-  
-    .ant-alert{
-      background-color:#eff0f318;
-      border: none;
-      .ant-typography{
-        color: rgb(252, 251, 241);
-      }
-      #accountDetail{
-        color: white;
-        font-weight:500;
-      }
-    }
-  
-    .ant-table {
-     
-      margin-left: -5%;
-      margin-right: -5%;
-      //padding: 0;
-      color: rgba(253, 250, 231, 0.959);
-      font-size: 18px;
-      font-weight:500;
-     
-      position: relative;
-      font-size: 14px;
-      background: none;
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+   
+      background-color: rgba(255, 255, 255, 0.123);
+      border: 1px solid #d9d9d9;
+      color:white;
+      border-radius: 2px;
       
     }
-
-    .ant-table-thead > tr > th {
-      position: relative;
-      background:none;
-      border-bottom: 1px solid #5347ff;
-      // transition: background 0.3s ease;
+    .ant-select-dropdown{
+      background-color: rgba(50, 66, 79, 0.87);
     }
-    .ant-table-tbody > tr > td {
-      border-bottom: 1px solid #3a37fa38;
-      background-color: #1b1f5494;
-      padding-left: 30px;
-    }
-
-    .ant-table-tbody > tr.ant-table-row:hover > td {
-      background: #8990f52f;
-    }
-  
-}
-
-.ant-form-item .ant-form-item-label { 
-  text-align:center;
-  color:white;
-}
-
-.ant-modal-footer { 
-  border-radius: 0 0 8px 8px;
-  #modalCloseButton, #modalSyncButton{
-    background: linear-gradient(to right top, #0076fcee, #00c3fff3);
-    box-shadow:  0px 0px 4px 1px rgba(18, 18, 19, 0.37);    
-    font-weight:600;  
-    border-color: #0026fd;
-    color: white;
-  }
-  #modalCloseButton:hover, #modalSyncButton:hover{
-    background: linear-gradient(to right top, #0076fc83, #00c3ff57);
-  }
-  
-}
-.ant-modal-header {
-  background:rgb(14, 32, 52);
-  border-radius: 8px 8px 0 0;
-  #modalTitle{
-    color: #0077ff;
-  } 
-}
-
-#componentContainer{
-  padding-top: 50px;
-  padding-left: 5px;
-  padding-right: 5px;
-
-
-  // .ant-card-meta-description {
-  //   overflow: auto;
-  // }
-
-  .ant-card-head {     
-    margin-bottom: 30px;
-   
-  }
-
-  #alertCard{
-    height: 200px;
-    overflow-y: auto;
-    padding-bottom: 5px;
-  }
-  
-  .ant-card-actions {    
-    background: rgba(56, 59, 86, 0.205);
-    border: transparent;
-    border-radius: 1px 1px 8px 8px ;
-    box-shadow: 0px 2px 5px rgba(13, 13, 14, 0.281);
-    z-index: 3;
-  }
-
-  .ant-card-rtl .ant-card-actions > li:not(:first-child) {
-    border-right: none;
-    border-left: 1px solid #0a3267;
-  }
-  // .ant-card-actions > li > span {
-  //   position: fixed;
     
-  // }
-  .ant-card-actions > li > span a:not(.ant-btn):hover,
-  .ant-card-actions > li > span > .anticon:hover {
-    color: #142433;
-    font-size: 22px;
+      .ant-alert{
+        background-color:#eff0f318;
+        border: none;
+        .ant-typography{
+          color: rgb(252, 251, 241);
+        }
+        #accountDetail{
+          color: white;
+          font-weight:500;
+        }
+      }
+    
+      .ant-table {
+       
+        margin-left: -5%;
+        margin-right: -5%;
+        //padding: 0;
+        color: rgba(253, 250, 231, 0.959);
+        font-size: 18px;
+        font-weight:500;
+       
+        position: relative;
+        font-size: 14px;
+        background: none;
+        
+      }
+  
+      .ant-table-thead > tr > th {
+        position: relative;
+        background:none;
+        border-bottom: 1px solid #5347ff;
+        // transition: background 0.3s ease;
+      }
+      .ant-table-tbody > tr > td {
+        border-bottom: 1px solid #3a37fa38;
+        background-color: #1b1f5494;
+        padding-left: 30px;
+      }
+  
+      .ant-table-tbody > tr.ant-table-row:hover > td {
+        background: #8990f52f;
+      }
+  
+      .ant-typography{
+        color:white;
+      }
+    
   }
-
-  #otherCard{
-    width: inherit;
-    box-shadow: 0px -2px 5px rgba(11, 11, 17, 0.658);
-    backdrop-filter: blur(0.5rem);
-    border:transparent;
-    background: linear-gradient(to right top, rgba(214, 214, 247, 0.075), rgba(0, 204, 255, 0.089));
-    border-radius: 12px;
+  
+  .ant-form-item .ant-form-item-label { 
+    text-align:center;
+    color:white;
   }
-
-  #waterRateCard{
-    width: inherit;
-    box-shadow: 0px -2px 5px rgba(6, 6, 32, 0.377);
-    backdrop-filter: blur(0.5rem);
-    border:transparent;
-    background: rgba(24, 24, 24, 0.541);
-
-    .ant-card-rtl .ant-card-actions > li:not(:last-child) {
+  
+  .ant-modal-footer { 
+    border-radius: 0 0 8px 8px;
+    #modalCloseButton, #modalSyncButton{
+      background: linear-gradient(to right top, #0076fcee, #00c3fff3);
+      box-shadow:  0px 0px 4px 1px rgba(18, 18, 19, 0.37);    
+      font-weight:600;  
+      border-color: #0026fd;
+      color: white;
+    }
+    #modalCloseButton:hover, #modalSyncButton:hover{
+      background: linear-gradient(to right top, #0076fc83, #00c3ff57);
+    }
+    
+  }
+  .ant-modal-header {
+    background:rgb(14, 32, 52);
+    border-radius: 8px 8px 0 0;
+    #modalTitle{
+      color: #0077ff;
+    } 
+  }
+  
+  #componentContainer{
+    padding-top: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+  
+  
+    // .ant-card-meta-description {
+    //   overflow: auto;
+    // }
+  
+    .ant-card-head {     
+      margin-bottom: 30px;
+     
+    }
+  
+    #alertCard{
+      height: 200px;
+      overflow-y: auto;
+      padding-bottom: 5px;
+    }
+    
+    .ant-card-actions {    
+      background: rgba(56, 59, 86, 0.205);
+      border: transparent;
+      border-radius: 1px 1px 8px 8px ;
+      box-shadow: 0px 2px 5px rgba(13, 13, 14, 0.281);
+      z-index: 3;
+    }
+  
+    .ant-card-rtl .ant-card-actions > li:not(:first-child) {
       border-right: none;
       border-left: 1px solid #0a3267;
     }
-    
-    #checkBox{
-      top: 50%;
+    // .ant-card-actions > li > span {
+    //   position: fixed;
+      
+    // }
+    .ant-card-actions > li > span a:not(.ant-btn):hover,
+    .ant-card-actions > li > span > .anticon:hover {
+      color: #142433;
+      font-size: 22px;
     }
-    
-    #waterMeterSvg{
-      font-size: 40px;
-      color:rgb(0, 60, 255);
+  
+    #otherCard{
+      width: inherit;
+      box-shadow: 0px -2px 5px rgba(11, 11, 17, 0.658);
+      backdrop-filter: blur(0.5rem);
+      border:transparent;
+      background: linear-gradient(to right top, rgba(214, 214, 247, 0.075), rgba(0, 204, 255, 0.089));
+      border-radius: 12px;
     }
-    #meterCardHeader{
-      font-weight: 450;
-      background: linear-gradient(to right top, #0076fcee, #00c3fff3);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    #waterReading{
-        background: linear-gradient(to right top, #006efdee, #006efdee, #0011fff3);
-				background-clip: text;
-				-webkit-text-fill-color: transparent;
-    }
-    .ant-alert{
-     // height:90px;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-top:20px;
-      border-radius: 8px;
-      background: rgba(22, 40, 144, 0.274);
-      border-color: blue;
-
-      .ant-switch-handle::before{
-        background-color: #000871;
-        border:1px solid rgb(8, 185, 255);
-      }
-
-      .ant-switch{
-        background-color: rgba(255, 255, 255, 0.24);
-      }
-
-      #statusText{
-        color:rgb(209, 220, 253);
-      }
-
-
-      #switchCheckIcon, #switchCloseIcon{
-        color: white;
-      }
-
-      h3.ant-typography,
-      .ant-typography h3 {
-        margin-bottom: 0px;
-      }
-
-      .ant-col-offset-5 {
-        margin-left: 23.16666667%;
+  
+    #waterRateCard{
+      width: inherit;
+      box-shadow: 0px -2px 5px rgba(6, 6, 32, 0.377);
+      backdrop-filter: blur(0.5rem);
+      border:transparent;
+      background: rgba(24, 24, 24, 0.541);
+  
+      .ant-card-rtl .ant-card-actions > li:not(:last-child) {
+        border-right: none;
+        border-left: 1px solid #0a3267;
       }
       
-      #meterId{
-        font-size: 12px;
-        font-weight: 600;
-        color: white;
+      #checkBox{
+        top: 50%;
       }
-
-      #waterDropIcon{
+      
+      #waterMeterSvg{
         font-size: 40px;
+        color:rgb(0, 60, 255);
       }
-
-      .ant-badge{
-        color: white;
+      #meterCardHeader{
+        font-weight: 450;
+        background: linear-gradient(to right top, #0076fcee, #00c3fff3);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-
-      #statusBadge{
-        padding-top: 20px;
-        font-weight:600;
-            
-       
+  
+      #waterReading{
+          background: linear-gradient(to right top, #006efdee, #006efdee, #0011fff3);
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
       }
-
-      #billSvg, #locationSvg{
-        font-size: 25px;
-        //font-weight:600;
-      }
-      
-      .ant-badge-dot {
-        z-index: 2px;        
-        box-shadow: 2px 2px 2px 2px rgba(15, 15, 15, 0.568);
-      }
-
-      .ant-tag{
-        background: linear-gradient(to right top, rgba(0, 0, 255, 0.37), rgba(0, 255, 255, 0.527));
-        backdrop-filter: blur(0.5rem);
-        border: 1px solid #0026fd;        
-        a{
-          font-weight:500;
-          color:rgba(255, 255, 255, 0.884);
+      .ant-alert{
+       // height:90px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-top:20px;
+        border-radius: 8px;
+        background: rgba(22, 40, 144, 0.274);
+        border-color: blue;
+  
+        .ant-switch-handle::before{
+          background-color: #000871;
+          border:1px solid rgb(8, 185, 255);
+        }
+  
+        .ant-switch{
+          background-color: rgba(255, 255, 255, 0.24);
+        }
+  
+        #statusText{
+          color:rgb(209, 220, 253);
+        }
+  
+  
+        #switchCheckIcon, #switchCloseIcon{
+          color: white;
+        }
+  
+        h3.ant-typography,
+        .ant-typography h3 {
+          margin-bottom: 0px;
+        }
+  
+        .ant-col-offset-5 {
+          margin-left: 23.16666667%;
         }
         
+        #meterId{
+          font-size: 12px;
+          font-weight: 600;
+          color: white;
+        }
+  
+        #waterDropIcon{
+          font-size: 40px;
+        }
+  
+        .ant-badge{
+          color: white;
+        }
+  
+        #statusBadge{
+          padding-top: 20px;
+          font-weight:600;
+              
+         
+        }
+  
+        #billSvg, #locationSvg{
+          font-size: 25px;
+          //font-weight:600;
+        }
+        
+        .ant-badge-dot {
+          z-index: 2px;        
+          box-shadow: 2px 2px 2px 2px rgba(15, 15, 15, 0.568);
+        }
+  
+        .ant-tag{
+          background: linear-gradient(to right top, rgba(0, 0, 255, 0.37), rgba(0, 255, 255, 0.527));
+          backdrop-filter: blur(0.5rem);
+          border: 1px solid #0026fd;        
+          a{
+            font-weight:500;
+            color:rgba(255, 255, 255, 0.884);
+          }
+          
+        }
+      }
+    
+      #syncIcon, #historyIcon, #propsIcon, #plusIcon{
+        font-size: 20px;
+        font-weight: bold;
+        color:rgb(71, 125, 225);
       }
     }
   
-    #syncIcon, #historyIcon, #propsIcon, #plusIcon{
-      font-size: 20px;
-      font-weight: bold;
-      color:rgb(71, 125, 225);
-    }
   }
 
-}
+

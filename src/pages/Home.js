@@ -4,7 +4,7 @@ import React, { createRef, useContext, useEffect, useState } from 'react';
 import { Alert, Avatar, Card, Col, Icon, Input, Row, Switch, Badge, Typography, Tooltip, Button, Tag, Checkbox, Select } from 'antd';
 import { EllipsisOutlined, SyncOutlined, HistoryOutlined, CheckOutlined, CloseOutlined, PlusOutlined} from '@ant-design/icons';
 import Modal from 'antd/lib/modal/Modal';
-import Form from 'antd/lib/form/Form';
+//import Form from 'antd/lib/form/Form';
 
 import SvgAsset from '../components/svgComponents/Asset'
 import SvgWaterDroplet from '../components/svgComponents/WaterDroplet';
@@ -125,6 +125,7 @@ const Home=()=>{
             </div>                
         )
     }
+
    
 
     return(
@@ -136,14 +137,14 @@ const Home=()=>{
                 <Col lg={20} md={24}>                                    
                         <Card id="waterRateCard"                                               
                             actions={[
-                                <Tooltip color="blue" title="Additional Properties" placement="bottom">
-                                    <EllipsisOutlined id="propsIcon" key="setting" onClick={()=>openModal("props")}/>
+                                <Tooltip color="blue" title="Additional Properties" placement="bottom" onClick={()=>openModal("props")}>
+                                    <EllipsisOutlined id="propsIcon" key="setting" />
                                 </Tooltip>,
                                 <Tooltip color="blue" title="Manual Sync" placement="bottom" onClick={()=>openModal("sync")}>
                                     <SyncOutlined id="syncIcon" key="edit"/>
                                 </Tooltip>,
                                 <Tooltip color="blue" title="Previous Readings" placement="bottom" onClick={()=>openModal("history")}>
-                                    <HistoryOutlined id="historyIcon" key="ellipsis" onClick={()=>openModal()}/>
+                                    <HistoryOutlined id="historyIcon" key="ellipsis"/>
                                 </Tooltip>,
                                 <Tooltip color="blue" title="Add a Meter" placement="bottom" onClick={()=>openModal("addMeter")}>
                                     <PlusOutlined id="plusIcon"></PlusOutlined>

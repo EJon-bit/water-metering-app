@@ -5,6 +5,9 @@ import MeterSync from '../components/modalComponents/MeterSyncForm';
 
 import { Card, Col, Icon, Input, Row, Typography, Button, Tag, Checkbox, Form,Select } from 'antd';
 import SettingsModal from '../components/modalComponents/SettingsModal';
+import AccountHistory from '../components/modalComponents/AccountHistory';
+import UserAccount from '../components/modalComponents/UserAccount';
+import Notifications from '../components/modalComponents/Notifications';
 
 const { Meta } = Card;
 const { Title } = Typography;
@@ -59,7 +62,9 @@ const ModalContextProvider=(props)=>{
     const openModal=(type)=>{        
         var content =  null;
         console.log("Type is", type.menu)
-        if (type !=="object"){
+        if (typeof type !=="object"){
+            setModalTitle(<Row id="modalTitle" justify="center">Account Selection</Row>)
+            
             content=
             <Form {...formProps}>
                 <Form.Item 
@@ -77,10 +82,23 @@ const ModalContextProvider=(props)=>{
         }          
         else if(type.menu==="Settings"){
             content= <SettingsModal/>
-            const titleModal= <Row id="modalTitle" justify="center">Settings</Row>
+            const titleModal= <Row id="modalTitle" justify="center">General Settings</Row>
             setModalTitle(titleModal)
-        }            
+            
+        }       
+        else if(type.menu==="Account"){
+            content= <UserAccount/>
+            const titleModal= <Row id="modalTitle" justify="center">Account Settings</Row>
+            setModalTitle(titleModal)
+        }
+        else if(type.menu==="Notif"){
+            content= <Notifications/>
+            const titleModal= <Row id="modalTitle" justify="center">Notifications</Row>
+            setModalTitle(titleModal)
+        }         
         else{<></> }
+
+        setFooterContent(<Row justify="center"><Button id="modalCloseButton" onClick={()=>handleClose()}>Close</Button></Row>); 
         setModalContent(content);
         setAccId(content);
         setModalVisible(true);
@@ -91,7 +109,6 @@ const ModalContextProvider=(props)=>{
             if(modalContentType==="props"){ 
                 const titleModal= <Row justify="center"> <Title id="modalTitle" level={4}>Additional Account Details</Title></Row>
                 setModalTitle(titleModal);
-                setFooterContent(<Row justify="center"><Button id="modalCloseButton" onClick={()=>handleClose()}>Close</Button></Row>);  
               
                 setModalContent(<AdditionalProps/>);
             }
@@ -117,19 +134,19 @@ const ModalContextProvider=(props)=>{
                 setFooterContent(
                     <Row gutter={20} justify="center">
                         <Col>
-                            <Button onClick={()=>handleClose()}>Cancel</Button>
+                            <Button id="modalCloseButton" onClick={()=>handleClose()}>Cancel</Button>
                         </Col>
                         <Col>
-                            <Button onClick={"Syncing"}>Add</Button>
+                            <Button id="modalCloseButton" onClick={"Syncing"}>Add</Button>
                         </Col>
                     </Row>
                 );               
             }
-            else{
-                const titleModal= <Row id="modalTitle" justify="center">Acc Selection</Row>
+            else if(modalContentType==="history"){
+                const titleModal= <Row id="modalTitle" justify="center">Account History</Row>
                 setModalTitle(titleModal);
-                setFooterContent(<Row justify="center"><Button id="modalCloseButton" onClick={()=>setModalVisible(false)}>Close</Button></Row>);  
-                //content=<></>
+               
+                setModalContent(<AccountHistory/>);
             }
     
     },[renderModalContent])
