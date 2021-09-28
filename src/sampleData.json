@@ -1,0 +1,9 @@
+{
+    "time": "2021-09-27 20:00:30", 
+    "data": {
+        "value":{
+            "pulse_counter":"720"
+        },
+        "response":"get"
+    }
+}

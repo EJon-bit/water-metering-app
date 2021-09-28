@@ -10,7 +10,6 @@
     "antd": "^4.16.9",
     "craco-antd": "^1.19.0",
     "react": "^17.0.2",
-    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -21,7 +20,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "svgr": "svgr --icon --title-prop --replace-attr-values '#515051:currentColor' -d src/components src/svg"
+    "svgr": "svgr --icon --title-prop --replace-attr-values '#515051:currentColor' -d src/components/svgComponents src/svg"
   },
   "eslintConfig": {
     "extends": [
