@@ -1,32 +1,39 @@
 import React, { createRef, useContext, useEffect, useState } from 'react';
 
 
-import { Alert,  Card, Col, Row, Badge, Typography } from 'antd';
+import { Grid, Alert, Col, Row, Badge, Tag, Typography } from 'antd';
 
 
 
 import SvgWaterDroplet from '../components/svgComponents/WaterDroplet';
-import SvgWaterMeter from '../components/svgComponents/WaterMeter';
+//import SvgWaterMeter from '../components/svgComponents/WaterMeter';
 
-
+const { useBreakpoint } = Grid;
 const { Title } = Typography;
 
 const Home=()=>{
+    const screens = useBreakpoint();
+    const [breakPoint, setBreakPoint]= useState();
+    const [waterRate, setWaterRate] = useState("1258 Gallons");
+    const [rateFontSize, setFontSize]= useState(2);
+    const [data,setData]=useState({
+        last_updated:'unknown',
+        "data": {
+            value:{ pulse_counter: "Offline"}
+        }
+    });
 
     const alertDescription=()=>{
         return( 
-            <Col span={12} offset={3}>
+            <Col span={14} offset={3}>
                 <Row>
-                    <p id="meterId">Pipe Number - 4</p>
+                    <Tag>{`Last Updated: ${data.last_updated}`}</Tag>                   
                 </Row>
               
             </Col>
         
         );
     }
-
-   
-   
 
     const waterRateRender=()=>{
         const showRate=()=>{
@@ -39,7 +46,7 @@ const Home=()=>{
                             </Col>
                             <Col span={16}>
                                 <Row>
-                                    <Title id="waterReading" level={2}>{waterRate}</Title>
+                                    <Title id="waterReading" level={rateFontSize}>{data.data.value.pulse_counter!=='Offline'? `${data.data.value.pulse_counter} Gallons`: `${data.data.value.pulse_counter}`}</Title>
                                 </Row>                               
                             </Col>
                           
@@ -56,22 +63,54 @@ const Home=()=>{
             )
         }
         return(
-            <div id="alertCard">
-                <CustomScrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
-                    <Row justify="center">               
-                        <Col lg={18} xs={22}>
-                            <Badge.Ribbon text={<Row  id="ribbonText" justify="center">Status</Row>} color="blue">
-                                <Alert id="meterDisplay" message={showRate()}  description={alertDescription()} type="info"/>
-                            </Badge.Ribbon>
-                        </Col>                          
-                    </Row> 
-                   
-                </CustomScrollbars>
+            <div id="alertCard">              
+                <Row justify="center">               
+                    <Col lg={18} xs={24}>
+                        <Badge.Ribbon text={<Row  id="ribbonText" justify="center">Status</Row>} color="blue">
+                            <Alert id="meterDisplay" message={showRate()}  description={alertDescription()} type="info"/>
+                        </Badge.Ribbon>
+                    </Col>                          
+                </Row>                    
             </div>                
         )
     }
 
-   
+    const getData=()=>{
+        fetch('./appData/sampleData.json',
+        {
+          headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+        })
+        .then(function(response){
+            //console.log(response)
+            return response.json();
+        })
+        .then(function(myJson) {
+            console.log(myJson);
+            setData(myJson);
+        });
+    }
+
+    useEffect(()=>{
+        const breakpoints= Object.entries(screens).filter(screen=> screen[1])
+        const point= Object.keys(Object.fromEntries(breakpoints))[breakpoints.length-1]
+        setBreakPoint(point);
+
+        if(point==="xs" || point==="sm" || point==="md"){
+            setFontSize(4);
+        }
+        else{
+            setFontSize(2);
+        }
+
+        getData();
+
+        setInterval(() => {
+            getData();
+        }, 60000);
+    },[screens])
 
     return(
         <div id="componentContainer">                     
